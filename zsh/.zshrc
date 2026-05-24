@@ -9,6 +9,14 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach-session -t default || tmux new-session -s default
 fi
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -121,3 +129,4 @@ export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 export PATH="$JAVA_HOME/bin:$PATH"
 export EDITOR=/usr/bin/nvim
 
+export PATH="$PATH:/home/tavim/.cargo/bin"
