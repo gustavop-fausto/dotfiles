@@ -11,7 +11,7 @@ return {
 		dependencies = { "mason.nvim" },
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "jdtls", "gopls", "pyright", "ts_ls", "bashls" },
+				ensure_installed = { "lua_ls", "gopls", "pyright", "ts_ls", "bashls" },
 			})
 		end,
 	},
@@ -27,7 +27,6 @@ return {
 					"lua_ls",
 					"pyright",
 					"ts_ls",
-					"jdtls",
 					"gopls",
 					"pyright",
 					"bashls",
