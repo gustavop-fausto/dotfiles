@@ -130,3 +130,4 @@ export PATH="$JAVA_HOME/bin:$PATH"
 export EDITOR=/usr/bin/nvim
 
 export PATH="$PATH:/home/tavim/.cargo/bin"
+export PATH="$HOME/go/bin:$PATH"
